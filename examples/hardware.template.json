@@ -1,0 +1,20 @@
+{
+  "camera": {
+    "occlusion_clearance_mm": null,
+    "corners_px": [null, null, null, null],
+    "corners_mm": [null, null, null, null]
+  },
+  "arm": {
+    "contact_push_enabled": false,
+    "high_z_mm": null,
+    "low_z_mm": null,
+    "pairs": [
+      {"board_mm": null, "arm_mm": null},
+      {"board_mm": null, "arm_mm": null},
+      {"board_mm": null, "arm_mm": null}
+    ],
+    "grip_seconds": null,
+    "release_seconds": null,
+    "blow_seconds": 0
+  }
+}

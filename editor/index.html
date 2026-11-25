@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#202d2a" />
+    <title>Armischestra · 剧场工作台</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header class="top">
+      <div class="header-inner">
+        <div class="brand">
+          <svg viewBox="0 0 38 38" aria-hidden="true" class="brand-icon">
+            <path
+              d="M5 29h12m-7-1 4-9 8-7 7 6v5m-3 0h6M10 32h10"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <g stroke="currentColor" stroke-width="2.2" fill="#25352f">
+              <circle cx="14" cy="19" r="3.3" />
+              <circle cx="22" cy="12" r="3.3" />
+              <circle cx="29" cy="18" r="2" />
+            </g></svg
+          ><b>Armischestra</b><span class="brand-divider"></span
+          ><span class="brand-sub">剧场工作台</span>
+        </div>
+        <nav aria-label="文件">
+          <button disabled id="newProject" class="nav-btn">新建</button
+          ><button disabled id="import" class="nav-btn">
+            <i data-icon="open"></i>导入</button
+          ><button disabled id="export" class="nav-btn">
+            <i data-icon="save"></i>导出剧本</button
+          ><button disabled id="print" class="btn-gold">
+            <i data-icon="print"></i>打印素材
+          </button>
+        </nav>
+        <input
+          type="file"
+          accept=".json,application/json"
+          id="importFile"
+          hidden
+        />
+      </div>
+    </header>
+    <main id="app" inert aria-busy="true">
+      <div class="page-heading">
+        <div>
+          <div class="project-label"><i data-icon="clapper"></i> 当前剧目</div>
+          <button class="title-button" id="titleEdit" title="编辑剧名">
+            <h1 id="title">载入剧本…</h1>
+            <i data-icon="pencil"></i>
+          </button>
+        </div>
+        <div class="toolbar">
+          <button id="deployment" class="outline">部署与标定</button>
+          <button id="undo" class="square" title="撤销" aria-label="撤销">
+            <i data-icon="undo"></i></button
+          ><button id="redo" class="square" title="重做" aria-label="重做">
+            <i data-icon="redo"></i>
+          </button>
+        </div>
+      </div>
+      <section class="desk">
+        <article class="panel stage-panel">
+          <div class="panel-heading">
+            <h2><i data-icon="stage"></i>舞台视图</h2>
+            <div class="segments">
+              <button id="modeEdit" aria-pressed="true">编辑</button
+              ><button id="modePreview" aria-pressed="false">预演</button>
+            </div>
+          </div>
+          <div class="board-wrap">
+            <canvas
+              id="board"
+              tabindex="0"
+              aria-label="舞台棋盘，拖动纸片改变起点；候场区用虚线标出"
+            ></canvas>
+            <div id="boardPrompt" hidden></div>
+          </div>
+          <div
+            id="healthReadout"
+            class="health-readout"
+            aria-label="当前血量"
+            hidden
+          ></div>
+          <div class="stage-controls">
+            <button id="play" class="play">
+              <i data-icon="play"></i><span>播放预演</span></button
+            ><input
+              id="scrub"
+              type="range"
+              min="0"
+              max="10000"
+              value="0"
+              aria-label="预演进度"
+            /><output id="timer">0.0 s</output
+            ><select id="speed" aria-label="预演倍速">
+              <option value="1">1×</option>
+              <option value="2">2×</option>
+              <option value="0.5">0.5×</option>
+            </select>
+          </div>
+          <div id="caption" class="caption">
+            <i data-icon="cross"></i><span>拖动纸片设置初始位置</span
+            ><label class="marker-toggle"
+              ><input id="showMarkers" type="checkbox" />显示定位标记</label
+            >
+          </div>
+        </article>
+        <aside class="panel inspector">
+          <div class="panel-heading">
+            <h2><i data-icon="sliders"></i>场景设置</h2>
+          </div>
+          <div class="side-tabs" role="group" aria-label="场景设置">
+            <button id="actorTab" aria-pressed="true">角色与道具</button
+            ><button id="reserveTab" aria-pressed="false">候场区</button
+            ><button id="healthTab" aria-pressed="false">血条</button
+            ><button id="stageTab" aria-pressed="false">棋盘</button>
+          </div>
+          <div id="sideContent"></div>
+        </aside>
+      </section>
+      <section class="panel script-panel">
+        <div class="panel-heading">
+          <h2>
+            <i data-icon="sequence"></i>剧本编排 <small id="stepCount"></small>
+          </h2>
+          <button id="addStep" class="outline">
+            <i data-icon="plus"></i>添加动作
+          </button>
+        </div>
+        <div class="script-body">
+          <div class="sequence" id="sequence" aria-label="剧本动作序列"></div>
+          <div id="stepInspector" class="step-inspector"></div>
+        </div>
+      </section>
+    </main>
+    <dialog id="dialog">
+      <form method="dialog" class="dialog-shell" id="dialogForm">
+        <div class="dialog-heading">
+          <h2 id="dialogTitle"></h2>
+          <button
+            type="button"
+            class="icon-button"
+            id="closeDialog"
+            aria-label="关闭"
+          >
+            <i data-icon="close"></i>
+          </button>
+        </div>
+        <div id="dialogBody"></div>
+        <div id="dialogFoot" class="dialog-foot"></div>
+      </form>
+    </dialog>
+    <div id="status" class="toast" role="status" hidden></div>
+    <script type="module" src="./editor.js"></script>
+  </body>
+</html>

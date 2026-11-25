@@ -1,0 +1,12 @@
+{
+  "camera": {},
+  "auto_xy": {"tag_height_at_low_mm": null, "sample_span_mm": null},
+  "arm": {
+    "contact_push_enabled": false,
+    "high_z_mm": null,
+    "low_z_mm": null,
+    "grip_seconds": null,
+    "release_seconds": null,
+    "blow_seconds": 0
+  }
+}

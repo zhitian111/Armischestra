@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="106mm" height="60mm" viewBox="0 0 106 60" xml:lang="zh">
+  <title>棋盘小剧场角色标记 · DICT_4X4_50</title>
+  <desc>按实际尺寸打印，沿虚线剪下并保留白边。每个黑方框外边长 24 mm。</desc>
+  <!-- OpenCV DICT_4X4_1000_BYTES, unrotated bytes: ID 1 [15,154]; ID 2 [51,45].
+       https://github.com/opencv/opencv/blob/4.x/modules/objdetect/src/aruco/predefined_dictionaries.hpp -->
+  <rect width="106" height="60" fill="white"/>
+  <rect x="11" y="9" width="34" height="34" fill="white" stroke="#888" stroke-width=".18" stroke-dasharray="1 1"/>
+  <g shape-rendering="crispEdges">
+    <rect x="16" y="14" width="24" height="24" fill="black"/>
+    <g fill="white">
+    <rect x="20" y="22" width="4" height="4"/>
+    <rect x="24" y="22" width="4" height="4"/>
+    <rect x="28" y="22" width="4" height="4"/>
+    <rect x="32" y="22" width="4" height="4"/>
+    <rect x="20" y="26" width="4" height="4"/>
+    <rect x="32" y="26" width="4" height="4"/>
+    <rect x="20" y="30" width="4" height="4"/>
+    <rect x="28" y="30" width="4" height="4"/>
+    </g>
+  </g>
+  <text x="28" y="51" text-anchor="middle" font-family="sans-serif" font-size="3.7">艾露猫 · ID 1</text>
+  <rect x="61" y="9" width="34" height="34" fill="white" stroke="#888" stroke-width=".18" stroke-dasharray="1 1"/>
+  <g shape-rendering="crispEdges">
+    <rect x="66" y="14" width="24" height="24" fill="black"/>
+    <g fill="white">
+    <rect x="78" y="18" width="4" height="4"/>
+    <rect x="82" y="18" width="4" height="4"/>
+    <rect x="78" y="22" width="4" height="4"/>
+    <rect x="82" y="22" width="4" height="4"/>
+    <rect x="78" y="26" width="4" height="4"/>
+    <rect x="70" y="30" width="4" height="4"/>
+    <rect x="74" y="30" width="4" height="4"/>
+    <rect x="82" y="30" width="4" height="4"/>
+    </g>
+  </g>
+  <text x="78" y="51" text-anchor="middle" font-family="sans-serif" font-size="3.7">黑龙 · ID 2</text>
+  <text x="53" y="57" text-anchor="middle" font-family="sans-serif" font-size="2.8">100% 实际尺寸打印 · 黑方框 24 mm · 沿虚线剪下并保留白边</text>
+</svg>

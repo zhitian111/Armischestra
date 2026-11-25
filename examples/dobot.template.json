@@ -1,0 +1,11 @@
+{
+  "host": null,
+  "camera_source": null,
+  "camera_size_px": null,
+  "user_index": null,
+  "tool_index": null,
+  "speed_l_percent": 10,
+  "command_timeout_s": 30,
+  "suction": {"bank": null, "index": null, "active_level": null},
+  "blow": null
+}

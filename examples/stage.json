@@ -1,0 +1,10 @@
+{
+  "size_mm": [300, 200],
+  "cell_mm": 25,
+  "park_mm": [10, 190],
+  "placement_tolerance_mm": 3,
+  "actors": {
+    "艾露猫": {"start_mm": [50, 75], "marker_id": 1, "pickup_offset_mm": [0, 0]},
+    "黑龙": {"start_mm": [250, 150], "marker_id": 2, "pickup_offset_mm": [0, 0]}
+  }
+}
